@@ -1,3 +1,5 @@
+"use client";
+
 import {
   createContext,
   useReducer,
@@ -20,8 +22,17 @@ type Action =
 
 function cartReducer(state: CartItem[], action: Action): CartItem[] {
   switch (action.type) {
-    case "add":
-      return [...state.filter((i) => i.id !== action.item.id), action.item];
+    case "add": {
+      const exists = state.find((i) => i.id === action.item.id);
+      if (exists) {
+        return state.map((i) =>
+          i.id === action.item.id
+            ? { ...i, qty: i.qty + action.item.qty, notes: i.notes }
+            : i
+        );
+      }
+      return [...state, action.item];
+    }
     case "remove":
       return state.filter((i) => i.id !== action.id);
     case "updateNotes":
