@@ -1,0 +1,72 @@
+import {
+  createContext,
+  useReducer,
+  ReactNode,
+  useEffect,
+  useContext,
+} from "react";
+
+export interface CartItem {
+  id: number;
+  name: string;
+  qty: number;
+  notes?: string;
+}
+
+type Action =
+  | { type: "add"; item: CartItem }
+  | { type: "remove"; id: number }
+  | { type: "updateNotes"; id: number; notes: string };
+
+function cartReducer(state: CartItem[], action: Action): CartItem[] {
+  switch (action.type) {
+    case "add":
+      return [...state.filter((i) => i.id !== action.item.id), action.item];
+    case "remove":
+      return state.filter((i) => i.id !== action.id);
+    case "updateNotes":
+      return state.map((i) =>
+        i.id === action.id ? { ...i, notes: action.notes } : i
+      );
+    default:
+      return state;
+  }
+}
+
+interface CartContextType {
+  cart: CartItem[];
+  addItem: (item: CartItem) => void;
+  removeItem: (id: number) => void;
+  updateNotes: (id: number, notes: string) => void;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [cart, dispatch] = useReducer(cartReducer, [], () => {
+    if (typeof window === "undefined") return [];
+    const stored = localStorage.getItem("cart");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addItem = (item: CartItem) => dispatch({ type: "add", item });
+  const removeItem = (id: number) => dispatch({ type: "remove", id });
+  const updateNotes = (id: number, notes: string) =>
+    dispatch({ type: "updateNotes", id, notes });
+
+  return (
+    <CartContext.Provider value={{ cart, addItem, removeItem, updateNotes }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart must be inside CartProvider");
+  return ctx;
+}
