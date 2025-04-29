@@ -1,20 +1,9 @@
 "use client";
 
-import { Agbalumo, Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
 import { ChevronRightIcon, ShoppingBasketIcon } from "lucide-react";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const agbalumo = Agbalumo({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 export default function Homepage() {
   return (
@@ -31,9 +20,7 @@ export default function Homepage() {
         </div>
 
         <div className="relative h-full">
-          <div
-            className={`${agbalumo.className} flex flex-col items-center py-10 text-white`}
-          >
+          <div className="flex flex-col items-center py-10 text-white">
             <div className="flex items-center justify-center">
               <Image
                 src="/pastel-icon.svg"
@@ -43,15 +30,15 @@ export default function Homepage() {
                 quality={100}
               />
             </div>
-            <h1 className="text-primary-yellow mt-4 text-center text-7xl leading-14">
+            <h1 className="font-agbalumo text-primary-yellow mt-4 text-center text-7xl leading-14">
               Pastel
               <br />
               <span className="text-light text-5xl">VistaPark</span>
             </h1>
           </div>
 
-          <div className="bg-light mx-auto h-full w-full rounded-t-[120px] pt-16">
-            <div className="px-6 text-center">
+          <div className="bg-light mx-auto h-full w-full rounded-t-[120px] pt-10">
+            <div className="font-sriracha px-6 text-center">
               <p className="text-[28px] md:text-5xl lg:text-[28px] xl:text-5xl">
                 <span className="text-primary-red">Fome?</span> Resolvemos
                 rápido
@@ -64,8 +51,8 @@ export default function Homepage() {
                 href="/menu"
                 className="mt-10 inline-flex items-center space-x-2"
               >
-                <div className="flex items-center justify-between gap-6 rounded-full bg-white pr-3 shadow transition hover:opacity-75 md:gap-12">
-                  <div className="bg-primary-red flex size-14 items-center justify-center rounded-full text-white shadow md:size-20">
+                <div className="flex items-center justify-between gap-6 rounded-full bg-white pr-3 shadow-sm transition hover:opacity-75 md:gap-12">
+                  <div className="bg-primary-red flex size-14 items-center justify-center rounded-full text-white md:size-20">
                     <ShoppingBasketIcon className="size-8 md:size-12" />
                   </div>
                   <span className="text-[28px] md:text-4xl">Pedir agora</span>
@@ -73,9 +60,7 @@ export default function Homepage() {
                 </div>
               </Link>
             </div>
-            <footer
-              className={`${inter.className} pt-10 text-center text-xs xl:pt-20`}
-            >
+            <footer className="mt-10 text-center text-xs xl:mt-20">
               © 2025 – Todos os direitos reservados
             </footer>
           </div>
