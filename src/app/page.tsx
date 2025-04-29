@@ -12,6 +12,7 @@ const inter = Inter({
 });
 
 const agbalumo = Agbalumo({
+  subsets: ["latin"],
   weight: ["400"],
 });
 

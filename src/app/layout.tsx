@@ -5,6 +5,7 @@ import "./globals.css";
 import { CartProvider } from "@/contexts/CartContext";
 
 const sriracha = Sriracha({
+  subsets: ["latin"],
   weight: ["400"],
 });
 
