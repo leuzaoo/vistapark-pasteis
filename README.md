@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pastelaria VistaPark
 
-## Getting Started
+Este aplicativo é uma plataforma web responsiva para moradores de condomínio realizarem pedidos de pastéis (doces e salgados) diretamente pelo WhatsApp, sem necessidade de sistema de pagamento interno. O usuário pode:
 
-First, run the development server:
+### Filtrar entre pastéis doces e salgados
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Selecionar quantidade de cada sabor e adicionar observações (ex.: sem cebola, mais queijo)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Escolher forma de pagamento (Cartão, Pix ou Dinheiro) com campo para informar valor em dinheiro para troco
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Informar torre e apartamento para entrega
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Finalizar o pedido gerando um deep link que abre o WhatsApp com a mensagem formatada
 
-## Learn More
+# Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+### Next.js (React) para renderização híbrida (SSG/SSR), roteamento e otimizações de performance
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### TypeScript para tipagem estática e maior segurança de código
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### React Context + useReducer para gerenciamento global do estado do carrinho de compras
 
-## Deploy on Vercel
+### localStorage para persistir dados do carrinho entre sessões do usuário
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tailwind CSS para estilização utilitária e design responsivo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### React Hook Form + Zod para gerenciamento e validação de formulários de checkout
+
+### Lucide React para ícones leves e personalizáveis
+
+### next/font para otimizar o carregamento das fontes Inter e Agbalumo
+
+### WhatsApp API (deep link) para envio de pedidos ao número configurado
