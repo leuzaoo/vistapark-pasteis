@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <CartProvider>
         <body className={`${fontStyles}`}>
-          <h1 className="sr-only">VistaPark Pasteis</h1>
+          <h1 className="sr-only">Pastel VistaPark</h1>
           {children}
         </body>
       </CartProvider>
