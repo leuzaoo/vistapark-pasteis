@@ -30,7 +30,7 @@ export default function CheckoutPage() {
     const mensagem = [
       "*Novo pedido de pastéis:*",
       ...cart.map(
-        (i) => `${i.qty}x ${i.name}${i.notes ? ` (${i.notes})` : ""}`
+        (i) => `${i.qty}x ${i.name}${i.notes ? ` (${i.notes})` : ""}`,
       ),
       "",
       "*Pagamento:*",
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
 
     const phone = "5511940361039";
     const link = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
-      mensagem
+      mensagem,
     )}`;
 
     setTimeout(() => {
@@ -64,10 +64,10 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="relative max-w-lg mx-auto p-4 space-y-6">
+    <div className="relative mx-auto max-w-lg space-y-6 p-4">
       {/* Overlay de animação */}
       {isAnimating && (
-        <div className="absolute inset-0 bg-white bg-opacity-90 flex items-center justify-center z-10">
+        <div className="bg-opacity-90 absolute inset-0 z-10 flex items-center justify-center bg-white">
           <p className="text-xl font-semibold">
             Finalize o pedido no Whatsapp...
           </p>
@@ -76,9 +76,9 @@ export default function CheckoutPage() {
 
       {/* Revisão do carrinho */}
       <div>
-        <h2 className="text-xl font-semibold mb-2">Meu Pedido</h2>
+        <h2 className="mb-2 text-xl font-semibold">Meu Pedido</h2>
         {cart.map((item: CartItem) => (
-          <div key={item.id} className="flex items-center mb-4">
+          <div key={item.id} className="mb-4 flex items-center">
             <div className="flex-1">
               <p>
                 {item.qty}x {item.name}
@@ -88,12 +88,12 @@ export default function CheckoutPage() {
                 placeholder="Observações (ex: sem cebola)"
                 value={item.notes || ""}
                 onChange={(e) => updateNotes(item.id, e.target.value)}
-                className="border rounded px-2 py-1 w-full mt-1"
+                className="mt-1 w-full rounded border px-2 py-1"
               />
             </div>
             <button
               onClick={() => removeItem(item.id)}
-              className="ml-2 text-red-500 hover:underline text-2xl leading-none"
+              className="ml-2 text-2xl leading-none text-red-500 hover:underline"
               title="Remover"
             >
               &times;
@@ -108,7 +108,7 @@ export default function CheckoutPage() {
           <label className="block font-medium">Torre</label>
           <input
             {...register("tower")}
-            className="w-full border rounded px-2 py-1"
+            className="w-full rounded border px-2 py-1"
           />
           {errors.tower && (
             <p className="text-red-600">{errors.tower.message}</p>
@@ -119,7 +119,7 @@ export default function CheckoutPage() {
           <label className="block font-medium">Apartamento</label>
           <input
             {...register("apartment")}
-            className="w-full border rounded px-2 py-1"
+            className="w-full rounded border px-2 py-1"
           />
           {errors.apartment && (
             <p className="text-red-600">{errors.apartment.message}</p>
@@ -130,7 +130,7 @@ export default function CheckoutPage() {
           <label className="block font-medium">Forma de pagamento</label>
           <select
             {...register("paymentMethod")}
-            className="w-full border rounded px-2 py-1"
+            className="w-full rounded border px-2 py-1"
           >
             <option value="Cartão">Cartão</option>
             <option value="Pix">Pix</option>
@@ -146,7 +146,7 @@ export default function CheckoutPage() {
             <label className="block font-medium">Valor em dinheiro (R$)</label>
             <input
               {...register("cashAmount")}
-              className="w-full border rounded px-2 py-1"
+              className="w-full rounded border px-2 py-1"
             />
             {errors.cashAmount && (
               <p className="text-red-600">{errors.cashAmount.message}</p>
@@ -156,7 +156,7 @@ export default function CheckoutPage() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700"
+          className="w-full rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
         >
           Enviar para WhatsApp
         </button>
