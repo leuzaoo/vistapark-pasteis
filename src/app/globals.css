@@ -5,6 +5,10 @@
   --color-dark: #1f1f1f;
   --color-primary-red: #db0009;
   --color-primary-yellow: #ffbc0f;
+  --font-agbalumo: Agbalumo, sans-serif;
+  --font-sriracha: Sriracha, sans-serif;
+  --font-kodchasan: Kodchasan, sans-serif;
+  --font-unbounded: Unbounded, sans-serif;
 }
 
 :root {
