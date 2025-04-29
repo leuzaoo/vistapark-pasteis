@@ -10,28 +10,30 @@ const Navbar = () => {
   const { totalItems } = useCart();
 
   return (
-    <header className="flex items-center justify-between p-3 shadow-sm">
-      <div>
-        <Image
-          src="/pastel-icon.svg"
-          width={60}
-          height={60}
-          quality={100}
-          alt="Logo"
-        />
-      </div>
-      <Link href="/checkout">
-        <div className="relative">
-          <ShoppingBasketIcon
-            className="text-primary-red"
-            size={60}
-            strokeWidth={1}
+    <header className="w-full shadow-sm">
+      <div className="mx-auto flex w-full max-w-3xl justify-between p-3">
+        <div>
+          <Image
+            src="/pastel-icon.svg"
+            width={60}
+            height={60}
+            quality={100}
+            alt="Logo"
           />
-          <div className="bg-primary-yellow absolute bottom-0 left-0 flex size-6 items-center justify-center rounded-full text-sm font-bold">
-            {totalItems}
-          </div>
         </div>
-      </Link>
+        <Link href="/checkout">
+          <div className="relative">
+            <ShoppingBasketIcon
+              className="text-primary-red"
+              size={60}
+              strokeWidth={1}
+            />
+            <div className="bg-primary-yellow absolute bottom-0 left-0 flex size-6 items-center justify-center rounded-full text-sm font-bold">
+              {totalItems}
+            </div>
+          </div>
+        </Link>
+      </div>
     </header>
   );
 };
