@@ -1,0 +1,39 @@
+import Image from "next/image";
+import React from "react";
+
+import { ShoppingBasketIcon } from "lucide-react";
+
+import { useCart } from "@/contexts/CartContext";
+import Link from "next/link";
+
+const Navbar = () => {
+  const { totalItems } = useCart();
+
+  return (
+    <header className="flex items-center justify-between p-3 shadow-sm">
+      <div>
+        <Image
+          src="/pastel-icon.svg"
+          width={60}
+          height={60}
+          quality={100}
+          alt="Logo"
+        />
+      </div>
+      <Link href="/checkout">
+        <div className="relative">
+          <ShoppingBasketIcon
+            className="text-primary-red"
+            size={60}
+            strokeWidth={1}
+          />
+          <div className="bg-primary-yellow absolute bottom-0 left-0 flex size-6 items-center justify-center rounded-full text-sm font-bold">
+            {totalItems}
+          </div>
+        </div>
+      </Link>
+    </header>
+  );
+};
+
+export default Navbar;
