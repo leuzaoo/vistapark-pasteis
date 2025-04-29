@@ -65,7 +65,6 @@ export default function CheckoutPage() {
 
   return (
     <div className="relative mx-auto max-w-lg space-y-6 p-4">
-      {/* Overlay de animação */}
       {isAnimating && (
         <div className="bg-opacity-90 absolute inset-0 z-10 flex items-center justify-center bg-white">
           <p className="text-xl font-semibold">
@@ -74,7 +73,6 @@ export default function CheckoutPage() {
         </div>
       )}
 
-      {/* Revisão do carrinho */}
       <div>
         <h2 className="mb-2 text-xl font-semibold">Meu Pedido</h2>
         {cart.map((item: CartItem) => (
@@ -102,7 +100,6 @@ export default function CheckoutPage() {
         ))}
       </div>
 
-      {/* Formulário de entrega */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label className="block font-medium">Torre</label>
