@@ -31,7 +31,7 @@ const sriracha = Sriracha({
 const fontStyles = `${sriracha.variable} ${kodchasan.variable} ${agbalumo.variable} ${unbounded.variable} ${kodchasan.className} text-dark`;
 
 export const metadata: Metadata = {
-  title: "Vista Park | Pastéis",
+  title: "Pastel - Vista Park",
   description: "Pastelaria no condomínio residencial Vista Park",
 };
 
