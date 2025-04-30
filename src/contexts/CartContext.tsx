@@ -1,5 +1,4 @@
 "use client";
-
 import {
   createContext,
   useReducer,
@@ -18,6 +17,7 @@ export interface CartItem {
 type Action =
   | { type: "add"; item: CartItem }
   | { type: "remove"; id: number }
+  | { type: "removeQty"; id: number; qty: number }
   | { type: "updateNotes"; id: number; notes: string };
 
 function cartReducer(state: CartItem[], action: Action): CartItem[] {
@@ -33,6 +33,15 @@ function cartReducer(state: CartItem[], action: Action): CartItem[] {
       }
       return [...state, action.item];
     }
+    case "removeQty": {
+      return state
+        .map((i) =>
+          i.id === action.id
+            ? { ...i, qty: Math.max(0, i.qty - action.qty) }
+            : i,
+        )
+        .filter((i) => i.qty > 0);
+    }
     case "remove":
       return state.filter((i) => i.id !== action.id);
     case "updateNotes":
@@ -47,6 +56,7 @@ function cartReducer(state: CartItem[], action: Action): CartItem[] {
 interface CartContextType {
   cart: CartItem[];
   addItem: (item: CartItem) => void;
+  removeQty: (id: number, qty: number) => void;
   removeItem: (id: number) => void;
   updateNotes: (id: number, notes: string) => void;
   totalItems: number;
@@ -66,15 +76,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }, [cart]);
 
   const addItem = (item: CartItem) => dispatch({ type: "add", item });
+  const removeQty = (id: number, qty: number) =>
+    dispatch({ type: "removeQty", id, qty });
   const removeItem = (id: number) => dispatch({ type: "remove", id });
   const updateNotes = (id: number, notes: string) =>
     dispatch({ type: "updateNotes", id, notes });
 
-  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+  const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, removeItem, updateNotes, totalItems }}
+      value={{ cart, addItem, removeQty, removeItem, updateNotes, totalItems }}
     >
       {children}
     </CartContext.Provider>

@@ -10,7 +10,7 @@ export interface ProductItem {
 export const productList: ProductItem[] = [
   {
     id: 0,
-    name: "Frango c/ catupiry",
+    name: "Frango e catupiry",
     desc: "Frango desfiado, catupiry, milho",
     image: "/pastel-calabresa.avif",
     price: 2400,
