@@ -60,7 +60,7 @@ export default function FoodCardMenu({ product }: Props) {
           </div>
         </div>
         <div className="mt-5 mb-2 flex w-full items-center justify-between">
-          <p className="font-unbounded text-xl font-bold transition-all duration-500 ease-in-out sm:text-2xl">
+          <p className="font-unbounded font-bold transition-all duration-500 ease-in-out sm:text-2xl">
             {formatCurrency(product.price)}
           </p>
           <button
@@ -70,7 +70,7 @@ export default function FoodCardMenu({ product }: Props) {
             }
             className="bg-primary-red cursor-pointer place-items-end rounded-lg p-1 text-center sm:rounded-xl"
           >
-            <PlusIcon className="text-light size-6 sm:size-8" />
+            <PlusIcon className="text-light size-5 sm:size-8" />
           </button>
         </div>
       </div>
