@@ -43,7 +43,7 @@ export const productList: ProductItem[] = [
   {
     id: 4,
     name: "Banana com canela",
-    desc: "Banana em rodelas, canela, doce de leite",
+    desc: "Banana, canela e doce de leite",
     image: "/pastel-calabresa.avif",
     price: 2100,
     isSweet: true,
