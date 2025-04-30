@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 
-import { useCart, type CartItem } from "@/contexts/CartContext";
+import { useCart, CartItem } from "@/contexts/CartContext";
+import { productList } from "@/data/products";
 
 import EmptyCartLayout from "@/components/pages/EmptyCartLayout";
-import HeaderCart from "@/components/ui/HeaderCart";
-import { productList } from "@/data/products";
 import CartItemCard from "@/components/ui/FoodCartCard";
+import HeaderCart from "@/components/ui/HeaderCart";
 
 const CartPage = () => {
   const { cart, addItem, removeQty, updateNotes } = useCart();
