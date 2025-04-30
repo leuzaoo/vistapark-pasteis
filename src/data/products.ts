@@ -1,14 +1,59 @@
 export interface ProductItem {
   id: number;
   name: string;
+  desc: string;
+  image: string;
   price: number;
   isSweet: boolean;
 }
 
 export const productList: ProductItem[] = [
-  { id: 1, name: "Pastel de Queijo", price: 8.5, isSweet: false },
-  { id: 2, name: "Pastel de Carne", price: 9.0, isSweet: false },
-  { id: 3, name: "Pastel de Chocolate", price: 7.5, isSweet: true },
-  { id: 4, name: "Pastel de Banana com Canela", price: 8.0, isSweet: true },
-  { id: 5, name: "Pastel de Nutella", price: 8.0, isSweet: true },
+  {
+    id: 0,
+    name: "Frango c/ catupiry",
+    desc: "Frango desfiado, catupiry, milho",
+    image: "/pastel-calabresa.avif",
+    price: 2400,
+    isSweet: false,
+  },
+  {
+    id: 1,
+    name: "Queijo",
+    desc: "Queijo, catupiry",
+    image: "/pastel-calabresa.avif",
+    price: 8000,
+    isSweet: false,
+  },
+  {
+    id: 2,
+    name: "Carne",
+    desc: "Carne moída, queijo, azeitona, calabresa, catupiry",
+    image: "/pastel-calabresa.avif",
+    price: 2000,
+    isSweet: false,
+  },
+  {
+    id: 3,
+    name: "Chocolate",
+    image: "/pastel-calabresa.avif",
+    desc: "Chocolate",
+    price: 2100,
+    isSweet: true,
+  },
+  {
+    id: 4,
+    name: "Banana com canela",
+    desc: "Banana em rodelas, canela, doce de leite",
+    image: "/pastel-calabresa.avif",
+    price: 2100,
+    isSweet: true,
+  },
+  {
+    id: 5,
+    name: "Nutella",
+    desc: "Chocolate nutella",
+    image: "/pastel-calabresa.avif",
+    price: 2400,
+    isSweet: true,
+  },
 ];
