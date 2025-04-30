@@ -73,50 +73,50 @@ export default function FoodInfosCard({
             exit="exit"
             transition={{ type: "tween", duration: 0.3 }}
           >
-            <header className="mb-4 flex items-center justify-between">
-              <h2 className="text-2xl font-bold">{product.name}</h2>
-              <button onClick={onClose} className="p-1">
+            <header className="flex items-center justify-between">
+              <h2 className="font-unbounded text-2xl font-bold">
+                {product.name}
+              </h2>
+              <button
+                onClick={onClose}
+                className="bg-primary-red/20 cursor-pointer rounded-full p-1"
+              >
                 <CloseIcon size={20} />
               </button>
             </header>
 
-            <p className="mb-6 text-gray-700">{product.desc}</p>
+            <p className="text-dark/60 mb-16 text-xl">{product.desc}</p>
 
-            <div className="mb-6 flex justify-between space-x-4">
+            <div className="mb-6 flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-500">Valor unitário</p>
-                <p className="text-2xl font-bold">
-                  {formatCurrency(unitPrice)}
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Valor total</p>
-                <p className="text-2xl font-bold">
+                <p className="text-dark text-xl">Valor total</p>
+                <p className="font-unbounded text-2xl font-bold">
                   {formatCurrency(totalPrice)}
                 </p>
               </div>
-            </div>
-
-            <div className="mb-6 flex items-center justify-center space-x-4">
-              <button
-                onClick={decrease}
-                disabled={isZero}
-                className={`rounded-full bg-gray-200 p-2 ${isZero ? "opacity-30" : "hover:bg-gray-300"}`}
-              >
-                <MinusIcon size={16} />
-              </button>
-              <span className="text-lg font-medium">{quantity}</span>
-              <button
-                onClick={increase}
-                className="rounded-full bg-gray-200 p-2 hover:bg-gray-300"
-              >
-                <PlusIcon size={16} />
-              </button>
+              <div className="flex items-center justify-center">
+                <button
+                  onClick={decrease}
+                  disabled={isZero}
+                  className={`bg-dark/15 cursor-pointer rounded-l-2xl p-3 transition-all duration-500 ease-in-out ${isZero ? "opacity-30" : "hover:bg-dark/30"}`}
+                >
+                  <MinusIcon size={20} />
+                </button>
+                <span className="bg-dark/5 px-4 py-2 text-lg font-medium">
+                  {quantity}
+                </span>
+                <button
+                  onClick={increase}
+                  className="bg-dark/15 hover:bg-dark/30 cursor-pointer rounded-r-full p-3 transition-all duration-500 ease-in-out"
+                >
+                  <PlusIcon size={20} />
+                </button>
+              </div>
             </div>
 
             <button
               onClick={onAddToCart}
-              className={`w-full rounded-full py-3 text-center font-semibold text-white ${actionClasses}`}
+              className={`w-full cursor-pointer rounded-full py-3 text-center font-semibold text-white ${actionClasses}`}
             >
               {actionLabel}
             </button>
