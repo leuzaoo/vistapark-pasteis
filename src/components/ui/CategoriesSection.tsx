@@ -43,6 +43,8 @@ export default function CategoriesSection() {
         id: selectedProduct.id,
         name: selectedProduct.name,
         qty: diff,
+        image: selectedProduct.image,
+        price: selectedProduct.price,
       });
     } else if (diff < 0) {
       removeQty(selectedProduct.id, Math.abs(diff));
