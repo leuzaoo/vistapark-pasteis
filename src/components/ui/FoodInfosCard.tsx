@@ -1,10 +1,14 @@
 "use client";
 
 import React, { useCallback } from "react";
-import { AnimatePresence, motion, Variants } from "framer-motion";
-import { ProductItem } from "@/data/products";
-import { PlusIcon, MinusIcon, X as CloseIcon } from "lucide-react";
+
+import { motion, Variants } from "framer-motion";
+import { X as CloseIcon } from "lucide-react";
+
 import { formatCurrency } from "@/utils/formatCurrency";
+import { ProductItem } from "@/data/products";
+
+import AddRemoveButton from "./AddRemoveButton";
 
 interface FoodInfosCardProps {
   product: ProductItem;
@@ -48,81 +52,66 @@ export default function FoodInfosCard({
   const totalPrice = unitPrice * quantity;
 
   const actionLabel = isZero ? "Remover do carrinho" : "Atualizar carrinho";
-  const actionClasses = isZero
-    ? "bg-red-600 hover:bg-red-700"
-    : "bg-primary-red hover:bg-primary-red-dark";
+
+  if (!isOpen) return null;
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          <motion.div
-            className="bg-opacity-50 fixed inset-0 z-40 backdrop-blur-lg"
-            variants={backdropVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+    <>
+      <motion.div
+        className="bg-opacity-50 fixed inset-0 z-40 backdrop-blur-lg"
+        variants={backdropVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        onClick={onClose}
+      />
+
+      <motion.div
+        className="fixed right-0 bottom-0 left-0 z-50 mx-auto w-full max-w-3xl rounded-t-xl bg-white p-6 shadow-xl"
+        variants={panelVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        transition={{ type: "tween", duration: 0.3 }}
+      >
+        <header className="flex items-center justify-between">
+          <h2 className="font-unbounded text-2xl font-bold">{product.name}</h2>
+          <button
             onClick={onClose}
-          />
-
-          <motion.div
-            className="fixed right-0 bottom-0 left-0 z-50 mx-auto w-full max-w-md rounded-t-[30px] bg-white p-6 shadow-xl"
-            variants={panelVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{ type: "tween", duration: 0.3 }}
+            className="bg-primary-red/20 cursor-pointer rounded-full p-1"
           >
-            <header className="flex items-center justify-between">
-              <h2 className="font-unbounded text-2xl font-bold">
-                {product.name}
-              </h2>
-              <button
-                onClick={onClose}
-                className="bg-primary-red/20 cursor-pointer rounded-full p-1"
-              >
-                <CloseIcon size={20} />
-              </button>
-            </header>
+            <CloseIcon size={20} />
+          </button>
+        </header>
 
-            <p className="text-dark/60 mb-16 text-xl">{product.desc}</p>
+        <p className="text-dark/60 mb-16 text-xl">{product.desc}</p>
 
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <p className="text-dark text-xl">Valor total</p>
-                <p className="font-unbounded text-2xl font-bold">
-                  {formatCurrency(totalPrice)}
-                </p>
-              </div>
-              <div className="flex items-center justify-center">
-                <button
-                  onClick={decrease}
-                  disabled={isZero}
-                  className={`bg-dark/15 cursor-pointer rounded-l-full p-3 transition-all duration-500 ease-in-out ${isZero ? "opacity-30" : "hover:bg-dark/30"}`}
-                >
-                  <MinusIcon size={20} />
-                </button>
-                <span className="bg-dark/5 px-4 py-2 text-lg font-medium">
-                  {quantity}
-                </span>
-                <button
-                  onClick={increase}
-                  className="bg-dark/15 hover:bg-dark/30 cursor-pointer rounded-r-full p-3 transition-all duration-500 ease-in-out"
-                >
-                  <PlusIcon size={20} />
-                </button>
-              </div>
-            </div>
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <p className="text-dark text-xl">Valor total</p>
+            <p className="font-unbounded text-2xl font-bold">
+              {formatCurrency(totalPrice)}
+            </p>
+          </div>
 
-            <button
-              onClick={onAddToCart}
-              className={`w-full cursor-pointer rounded-full py-3 text-center font-semibold text-white ${actionClasses}`}
-            >
-              {actionLabel}
-            </button>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+          <div className="flex items-center justify-center">
+            <AddRemoveButton
+              increase={increase}
+              decrease={decrease}
+              disabled={isZero}
+              isZero={isZero}
+              quantity={quantity}
+            />
+          </div>
+        </div>
+
+        <button
+          onClick={onAddToCart}
+          className="bg-primary-red hover:bg-primary-red/60 w-full cursor-pointer rounded-full py-3 text-center font-semibold text-white transition-all duration-200 ease-in-out"
+        >
+          {actionLabel}
+        </button>
+      </motion.div>
+    </>
   );
 }
