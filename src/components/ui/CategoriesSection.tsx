@@ -72,9 +72,10 @@ export default function CategoriesSection() {
         </div>
       </section>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedProduct && (
           <FoodInfosCard
+            key={selectedProduct.id}
             product={selectedProduct}
             isOpen={!!selectedProduct}
             quantity={quantity}
