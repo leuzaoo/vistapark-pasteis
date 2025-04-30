@@ -10,7 +10,7 @@ const Navbar = () => {
   const { totalItems } = useCart();
 
   return (
-    <header className="w-full shadow-sm">
+    <header className="bg-light sticky top-0 z-50 w-full shadow-sm">
       <div className="mx-auto flex w-full max-w-3xl justify-between p-3">
         <div>
           <Image
