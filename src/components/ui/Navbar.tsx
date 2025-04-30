@@ -21,7 +21,7 @@ const Navbar = () => {
             alt="Logo"
           />
         </div>
-        <Link href="/checkout">
+        <Link href="/cart">
           <div className="relative">
             <ShoppingBasketIcon
               className="text-primary-red"
