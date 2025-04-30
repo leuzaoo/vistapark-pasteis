@@ -11,7 +11,7 @@ export const productList: ProductItem[] = [
   {
     id: 0,
     name: "Frango e catupiry",
-    desc: "Frango desfiado, catupiry, milho",
+    desc: "Frango, catupiry, milho e coentro.",
     image: "/pastel-calabresa.avif",
     price: 2400,
     isSweet: false,
