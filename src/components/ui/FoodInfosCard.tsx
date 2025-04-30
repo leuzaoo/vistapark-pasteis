@@ -98,7 +98,7 @@ export default function FoodInfosCard({
                 <button
                   onClick={decrease}
                   disabled={isZero}
-                  className={`bg-dark/15 cursor-pointer rounded-l-2xl p-3 transition-all duration-500 ease-in-out ${isZero ? "opacity-30" : "hover:bg-dark/30"}`}
+                  className={`bg-dark/15 cursor-pointer rounded-l-full p-3 transition-all duration-500 ease-in-out ${isZero ? "opacity-30" : "hover:bg-dark/30"}`}
                 >
                   <MinusIcon size={20} />
                 </button>
