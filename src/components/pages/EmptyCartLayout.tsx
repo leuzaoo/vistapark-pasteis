@@ -6,7 +6,7 @@ import HeaderCart from "../ui/HeaderCart";
 const EmptyCartLayout = () => {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-3 rounded-b-2xl bg-white p-8 shadow-sm">
-      <HeaderCart />
+      <HeaderCart href="/menu" />
       <p className="font-light transition-all duration-500 ease-in-out sm:text-xl">
         Não há pastéis em seu carrinho. Volte ao menu e adicione.
       </p>

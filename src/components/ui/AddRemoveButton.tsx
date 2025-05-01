@@ -21,16 +21,14 @@ const AddRemoveButton = ({
       <button
         onClick={decrease}
         disabled={disabled}
-        className={`bg-dark/15 cursor-pointer rounded-l-full p-2 transition-all duration-500 ease-in-out ${isZero ? "opacity-30" : "hover:bg-dark/30"}`}
+        className={`bg-dark/15 cursor-pointer rounded-l-sm p-1 transition-all duration-500 ease-in-out ${isZero ? "opacity-30" : "hover:bg-dark/30"}`}
       >
         <MinusIcon size={20} />
       </button>
-      <span className="bg-dark/5 px-3 py-1 text-lg font-medium">
-        {quantity}
-      </span>
+      <span className="px-2">{quantity}</span>
       <button
         onClick={increase}
-        className="bg-dark/15 hover:bg-dark/30 cursor-pointer rounded-r-full p-2 transition-all duration-500 ease-in-out"
+        className="bg-dark/15 hover:bg-dark/30 cursor-pointer rounded-r-sm p-1 transition-all duration-500 ease-in-out"
       >
         <PlusIcon size={20} />
       </button>
