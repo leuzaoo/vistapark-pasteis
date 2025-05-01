@@ -14,7 +14,7 @@ const HeaderCart = ({ href }: Props) => {
   const { totalItems } = useCart();
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 pb-5">
       <Link href={href}>
         <ChevronLeftIcon />
       </Link>

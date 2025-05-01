@@ -33,7 +33,7 @@ export default function FoodCartCard({
 
   return (
     <div key={item.id} className="relative">
-      <div className="relative z-50 mt-5 mb-14 flex gap-2 rounded-xl bg-white p-2 shadow-sm">
+      <div className="relative z-50 mb-16 flex gap-2 rounded-xl bg-white p-2 shadow-sm">
         <Image
           src={product.image}
           width={1024}
