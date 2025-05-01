@@ -12,6 +12,8 @@ export interface CartItem {
   name: string;
   qty: number;
   notes?: string;
+  image: string;
+  price: number;
 }
 
 type Action =

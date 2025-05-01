@@ -9,6 +9,7 @@ import { useCart } from "@/contexts/CartContext";
 import FoodInfosCard from "./FoodInfosCard";
 import ToggleSwitch from "./ToggleSwitch";
 import FoodCardMenu from "./FoodCardMenu";
+import TitlePage from "./TitlePage";
 
 export default function CategoriesSection() {
   const [showSweet, setShowSweet] = useState(false);
@@ -42,6 +43,8 @@ export default function CategoriesSection() {
         id: selectedProduct.id,
         name: selectedProduct.name,
         qty: diff,
+        image: selectedProduct.image,
+        price: selectedProduct.price,
       });
     } else if (diff < 0) {
       removeQty(selectedProduct.id, Math.abs(diff));
@@ -53,9 +56,9 @@ export default function CategoriesSection() {
   return (
     <>
       <section className="mx-auto max-w-3xl p-5">
-        <h1 className="mb-2 text-2xl font-bold transition-all duration-500 ease-in-out sm:mb-4 sm:text-4xl sm:font-semibold">
-          Categorias
-        </h1>
+        <div className="mb-2 sm:mb-4">
+          <TitlePage text="Categorias" />
+        </div>
 
         <ToggleSwitch
           options={options}

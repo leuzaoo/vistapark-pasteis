@@ -64,7 +64,13 @@ export default function FoodCardMenu({ product }: Props) {
             type="button"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.stopPropagation();
-              addItem({ id: product.id, name: product.name, qty: 1 });
+              addItem({
+                id: product.id,
+                name: product.name,
+                qty: 1,
+                image: product.image,
+                price: product.price,
+              });
             }}
             className="bg-primary-red size-8 cursor-pointer place-items-end rounded-lg text-center sm:rounded-xl"
           >
