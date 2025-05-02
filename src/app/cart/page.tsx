@@ -33,6 +33,16 @@ export default function CartPage() {
     }
   };
 
+  const savoryItems = cart.filter((item) => {
+    const p = productList.find((p) => p.id === item.id);
+    return p?.isSweet === false;
+  });
+
+  const sweetItems = cart.filter((item) => {
+    const p = productList.find((p) => p.id === item.id);
+    return p?.isSweet === true;
+  });
+
   if (!mounted) {
     return null;
   }
@@ -49,17 +59,41 @@ export default function CartPage() {
           <ListOrderedIcon
             strokeWidth={1.5}
             size={32}
-            className="mb-5"
+            className="mb-5 sm:hidden"
             onClick={() => setOpenMenuCard(true)}
           />
         </div>
 
         <div className="flex-1 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-5">
           <div className="h-full overflow-y-auto pr-3 pb-40 sm:pb-0">
-            {cart.map((item: CartItem) => {
-              const product = productList.find((p) => p.id === item.id);
-              if (!product) return null;
+            {savoryItems.map((item) => {
+              const product = productList.find((p) => p.id === item.id)!;
+              return (
+                <div key={item.id}>
+                  <FoodCartCard
+                    item={item}
+                    product={product}
+                    length={item.qty}
+                    onAdd={() =>
+                      addItem({
+                        id: item.id,
+                        name: item.name,
+                        qty: 1,
+                        image: item.image,
+                        price: item.price,
+                      })
+                    }
+                    onDecrease={() => removeQty(item.id, 1)}
+                    onDeleteItem={() => removeItem(item.id)}
+                    onUpdateNotes={(notes) => updateNotes(item.id, notes)}
+                    onEditExtras={() => setItemForExtras(item)}
+                  />
+                </div>
+              );
+            })}
 
+            {sweetItems.map((item) => {
+              const product = productList.find((p) => p.id === item.id)!;
               return (
                 <div key={item.id}>
                   <FoodCartCard
