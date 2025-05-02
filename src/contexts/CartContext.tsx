@@ -12,6 +12,7 @@ export interface CartItem {
   name: string;
   qty: number;
   notes?: string;
+  extras?: string[];
   image: string;
   price: number;
 }
@@ -20,7 +21,8 @@ type Action =
   | { type: "add"; item: CartItem }
   | { type: "remove"; id: number }
   | { type: "removeQty"; id: number; qty: number }
-  | { type: "updateNotes"; id: number; notes: string };
+  | { type: "updateNotes"; id: number; notes: string }
+  | { type: "updateExtras"; id: number; extras: string[] };
 
 function cartReducer(state: CartItem[], action: Action): CartItem[] {
   switch (action.type) {
@@ -50,6 +52,11 @@ function cartReducer(state: CartItem[], action: Action): CartItem[] {
       return state.map((i) =>
         i.id === action.id ? { ...i, notes: action.notes } : i,
       );
+    case "updateExtras":
+      return state.map((i) =>
+        i.id === action.id ? { ...i, extras: action.extras } : i,
+      );
+
     default:
       return state;
   }
@@ -61,6 +68,7 @@ interface CartContextType {
   removeQty: (id: number, qty: number) => void;
   removeItem: (id: number) => void;
   updateNotes: (id: number, notes: string) => void;
+  updateExtras: (id: number, extras: string[]) => void;
   totalItems: number;
 }
 
@@ -83,12 +91,22 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const removeItem = (id: number) => dispatch({ type: "remove", id });
   const updateNotes = (id: number, notes: string) =>
     dispatch({ type: "updateNotes", id, notes });
+  const updateExtras = (id: number, extras: string[]) =>
+    dispatch({ type: "updateExtras", id, extras });
 
   const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, removeQty, removeItem, updateNotes, totalItems }}
+      value={{
+        cart,
+        addItem,
+        removeQty,
+        removeItem,
+        updateNotes,
+        updateExtras,
+        totalItems,
+      }}
     >
       {children}
     </CartContext.Provider>

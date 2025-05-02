@@ -1,6 +1,6 @@
 "use client";
 
-import { Trash2Icon } from "lucide-react";
+import { PlusIcon, Trash2Icon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -18,6 +18,7 @@ interface CartItemCardProps {
   onDecrease: () => void;
   onDeleteItem: () => void;
   onUpdateNotes: (notes: string) => void;
+  onEditExtras: () => void;
 }
 
 export default function FoodCartCard({
@@ -28,11 +29,12 @@ export default function FoodCartCard({
   onDecrease,
   onUpdateNotes,
   onDeleteItem,
+  onEditExtras,
 }: CartItemCardProps) {
   const totalPrice = product.price * item.qty;
 
   return (
-    <div key={item.id} className="relative">
+    <div className="relative">
       <div className="relative z-50 mb-16 flex gap-2 rounded-xl bg-white p-2 shadow-sm">
         <Image
           src={product.image}
@@ -55,19 +57,28 @@ export default function FoodCartCard({
               x{length}
             </span>
           </div>
-          <AddRemoveButton
-            decrease={onDecrease}
-            increase={onAdd}
-            quantity={item.qty}
-            disabled={item.qty === 0}
-            isZero={item.qty === 0}
-          />
+          <div className="flex w-full items-center justify-between">
+            <AddRemoveButton
+              decrease={onDecrease}
+              increase={onAdd}
+              quantity={item.qty}
+              disabled={item.qty === 0}
+              isZero={item.qty === 0}
+            />
+            <button
+              className="bg-primary-red 0 cursor-pointer rounded-md text-white hover:opacity-70"
+              onClick={onEditExtras}
+              title="Adicionais"
+            >
+              <PlusIcon />
+            </button>
+          </div>
         </div>
       </div>
       <div className="bg-primary-yellow/25 absolute -bottom-9 z-10 w-full rounded-b-xl px-4 py-2 pt-6 shadow-sm">
         <input
           type="text"
-          placeholder="Observações (ex: Remover cebola)"
+          placeholder="Observações"
           value={item.notes || ""}
           onChange={(e) => onUpdateNotes(e.target.value)}
           className="text-dark border-dark/20 placeholder-dark/40 w-full border-b bg-transparent placeholder:text-sm focus:outline-none"
