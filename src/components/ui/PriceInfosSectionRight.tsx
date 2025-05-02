@@ -2,8 +2,8 @@ import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
+import { useCart, CartItem } from "@/contexts/CartContext";
 import { formatCurrency } from "@/utils/formatCurrency";
-import { useCart, type CartItem } from "@/contexts/CartContext";
 import { productList } from "@/data/products";
 
 export default function PriceInfosSectionRight() {

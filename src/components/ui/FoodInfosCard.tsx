@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useCallback } from "react";
-
 import { motion, Variants } from "framer-motion";
 import { SquareXIcon } from "lucide-react";
+import React, { useCallback } from "react";
 
 import { formatCurrency } from "@/utils/formatCurrency";
 import { ProductItem } from "@/data/products";
@@ -48,8 +47,7 @@ export default function FoodInfosCard({
   }, [quantity, onQuantityChange]);
 
   const isZero = quantity === 0;
-  const unitPrice = product.price;
-  const totalPrice = unitPrice * quantity;
+  const totalPrice = product.price * quantity;
 
   if (!isOpen) return null;
 
