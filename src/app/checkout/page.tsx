@@ -24,11 +24,21 @@ export default function CheckoutPage() {
 
   const onSubmit = (data: CheckoutData) => {
     const { tower, apartment, paymentMethod, cashAmount } = data;
+
+    const lines = cart.map((i) => {
+      const extrasStr =
+        i.extras && i.extras.length
+          ? ` (*Adicionais:* ${i.extras.join(", ")})`
+          : "";
+
+      const notesStr = i.notes ? ` (*Obs:* ${i.notes})` : "";
+
+      return `• ${i.qty}x ${i.name}${extrasStr}${notesStr}`;
+    });
+
     const message = [
       "*Novo pedido de pastéis:*",
-      ...cart.map(
-        (i) => `${i.qty}x ${i.name}${i.notes ? ` (${i.notes})` : ""}`,
-      ),
+      ...lines,
       "",
       "*Pagamento:*",
       paymentMethod,
