@@ -16,7 +16,7 @@ export default function PriceInfosSection() {
   }, 0);
 
   return (
-    <div className="border-dark/20 absolute right-0 bottom-0 left-0 z-50 mx-auto flex w-full max-w-2xl flex-col rounded-t-3xl border-t bg-white p-5 shadow-md sm:hidden">
+    <div className="border-dark/20 absolute right-0 bottom-0 left-0 z-50 mx-auto flex w-full max-w-2xl flex-col rounded-t-3xl border-t bg-white p-5 shadow-md">
       <div className="flex w-full items-center justify-between">
         <p className="transition-all duration-300 ease-in-out">Quantidade</p>
         <p className="font-unbounded text-lg font-bold transition-all duration-300 ease-in-out">

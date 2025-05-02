@@ -3,7 +3,7 @@
 import React, { useCallback } from "react";
 
 import { motion, Variants } from "framer-motion";
-import { X as CloseIcon } from "lucide-react";
+import { SquareXIcon } from "lucide-react";
 
 import { formatCurrency } from "@/utils/formatCurrency";
 import { ProductItem } from "@/data/products";
@@ -51,8 +51,6 @@ export default function FoodInfosCard({
   const unitPrice = product.price;
   const totalPrice = unitPrice * quantity;
 
-  const actionLabel = isZero ? "Remover do carrinho" : "Atualizar carrinho";
-
   if (!isOpen) return null;
 
   return (
@@ -67,7 +65,7 @@ export default function FoodInfosCard({
       />
 
       <motion.div
-        className="fixed right-0 bottom-0 left-0 z-50 mx-auto w-full max-w-3xl rounded-t-xl bg-white p-6 shadow-xl"
+        className="fixed right-0 bottom-0 left-0 z-50 mx-auto w-full max-w-xl rounded-t-xl bg-white p-6 shadow-xl"
         variants={panelVariants}
         initial="hidden"
         animate="visible"
@@ -75,12 +73,9 @@ export default function FoodInfosCard({
         transition={{ type: "tween", duration: 0.3 }}
       >
         <header className="flex items-center justify-between">
-          <h2 className="font-unbounded text-2xl font-bold">{product.name}</h2>
-          <button
-            onClick={onClose}
-            className="bg-primary-red/20 cursor-pointer rounded-full p-1"
-          >
-            <CloseIcon size={20} />
+          <p className="font-unbounded text-2xl font-bold">{product.name}</p>
+          <button onClick={onClose} className="text-primary-red cursor-pointer">
+            <SquareXIcon size={24} />
           </button>
         </header>
 
@@ -107,9 +102,9 @@ export default function FoodInfosCard({
 
         <button
           onClick={onAddToCart}
-          className="bg-primary-red hover:bg-primary-red/60 w-full cursor-pointer rounded-full py-3 text-center font-semibold text-white transition-all duration-200 ease-in-out"
+          className="bg-primary-red text-light hover:bg-primary-red/60 w-full cursor-pointer rounded-xl py-3 text-center text-xl font-light shadow-sm transition-all duration-200 ease-in-out"
         >
-          {actionLabel}
+          Confirmar
         </button>
       </motion.div>
     </>

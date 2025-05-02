@@ -20,10 +20,10 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
       {options.map((option) => (
         <button
           key={option}
-          className={`cursor-pointer rounded-[20px] px-5 py-3 shadow-sm transition-all duration-500 ease-in-out sm:text-2xl ${
+          className={`cursor-pointer rounded-lg px-5 py-3 font-medium shadow-sm transition-all duration-500 ease-in-out sm:text-2xl ${
             value === option
               ? "bg-dark text-light"
-              : "text-dark bg-white hover:bg-dark/5"
+              : "text-dark hover:bg-dark/5 bg-white"
           }`}
           onClick={() => handleToggle(option)}
           type="button"
