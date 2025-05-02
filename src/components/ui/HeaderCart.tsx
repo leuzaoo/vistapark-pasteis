@@ -1,10 +1,10 @@
+import { ChevronLeftIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 import { useCart } from "@/contexts/CartContext";
 
 import TitlePage from "./TitlePage";
-import Link from "next/link";
-import { ChevronLeftIcon } from "lucide-react";
 
 interface Props {
   href: string;

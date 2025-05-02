@@ -54,7 +54,8 @@ export default function FoodInfosCard({
   return (
     <>
       <motion.div
-        className="bg-opacity-50 fixed inset-0 z-40 backdrop-blur-lg"
+        key="background"
+        className="bg-opacity-50 bg-dark/30 fixed inset-0 z-40 backdrop-blur-md"
         variants={backdropVariants}
         initial="hidden"
         animate="visible"
@@ -63,6 +64,7 @@ export default function FoodInfosCard({
       />
 
       <motion.div
+        key="content"
         className="fixed right-0 bottom-0 left-0 z-50 mx-auto w-full max-w-xl rounded-t-xl bg-white p-6 shadow-xl"
         variants={panelVariants}
         initial="hidden"

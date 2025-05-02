@@ -18,29 +18,37 @@ export default function PriceInfosSectionRight() {
   return (
     <div className="hidden h-full flex-col justify-between rounded-xl bg-white p-2 shadow-sm sm:flex">
       <div className="flex h-full flex-col justify-between">
-        <ul className="space-y-2">
+        <ul className="space-y-0">
           {cart.map((item: CartItem) => {
             const product = productList.find((p) => p.id === item.id);
             if (!product) return null;
 
-            const itemsFinalPrice = item.price * item.qty;
+            const itemsFinalPrice = product.price * item.qty;
 
             return (
-              <>
-                <li>
-                  <div className="flex items-end justify-between">
+              <li key={item.id} className="border-dark/30 border-b py-2">
+                <div className="flex items-end justify-between">
+                  <div className="flex w-full flex-col items-start justify-between">
                     <h2 className="font-unbounded text-sm font-light">
                       {item.name}
                     </h2>
-                    <div className="font-unbounded flex items-center gap-1 text-xs">
-                      <span className="text-dark/60">{item.qty}x</span>
-                      <span className="font-bold">
-                        {formatCurrency(itemsFinalPrice)}
-                      </span>
-                    </div>
+                    {item.extras && item.extras.length > 0 && (
+                      <p className="text-xs font-bold">
+                        Extras:{" "}
+                        <span className="font-normal">
+                          {item.extras.join(", ")}
+                        </span>
+                      </p>
+                    )}
                   </div>
-                </li>
-              </>
+                  <div className="font-unbounded flex items-center gap-1 text-xs">
+                    <span className="text-dark/60">{item.qty}x</span>
+                    <span className="font-bold">
+                      {formatCurrency(itemsFinalPrice)}
+                    </span>
+                  </div>
+                </div>
+              </li>
             );
           })}
         </ul>
