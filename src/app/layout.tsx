@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <CartProvider>
-        <body className={`${fontStyles}`}>
+        <body suppressHydrationWarning className={`${fontStyles}`}>
           <h1 className="sr-only">Pastel VistaPark</h1>
           {children}
         </body>
