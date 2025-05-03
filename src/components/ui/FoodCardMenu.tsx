@@ -72,7 +72,7 @@ export default function FoodCardMenu({ product }: Props) {
                 price: product.price,
               });
             }}
-            className="bg-primary-red size-8 cursor-pointer place-items-end rounded-lg text-center sm:rounded-xl"
+            className="bg-primary-red size-8 cursor-pointer place-items-end rounded-lg text-center"
           >
             <PlusIcon className="text-light mx-auto size-6" />
           </button>
