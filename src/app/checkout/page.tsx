@@ -41,6 +41,7 @@ export default function CheckoutPage() {
       handleSubmit={handleSubmit}
       onSubmit={onSubmit}
       paymentMethod={paymentMethod}
+      watch={watch}
     />
   );
 }

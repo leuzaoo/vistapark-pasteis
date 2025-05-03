@@ -1,6 +1,7 @@
 "use client";
 
-import { PlusIcon, Trash2Icon } from "lucide-react";
+import { Trash2Icon } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
@@ -65,13 +66,14 @@ export default function FoodCartCard({
               disabled={item.qty === 0}
               isZero={item.qty === 0}
             />
-            <button
-              className="bg-primary-red 0 cursor-pointer rounded-md text-white hover:opacity-70"
+            <motion.button
+              whileTap={{ scale: 1.2 }}
+              className="text-dark bg-dark/10 cursor-pointer rounded-md px-2 py-1.5 text-xs hover:opacity-70"
               onClick={onEditExtras}
               title="Adicionais"
             >
-              <PlusIcon />
-            </button>
+              Adicionar
+            </motion.button>
           </div>
         </div>
       </div>
