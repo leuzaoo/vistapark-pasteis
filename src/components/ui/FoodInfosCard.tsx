@@ -70,7 +70,7 @@ export default function FoodInfosCard({
         initial="hidden"
         animate="visible"
         exit="exit"
-        transition={{ type: "tween", duration: 0.3 }}
+        transition={{ type: "spring", duration: 0.3 }}
       >
         <header className="flex items-center justify-between">
           <p className="font-unbounded text-2xl font-bold">{product.name}</p>

@@ -43,7 +43,7 @@ const PriceInfosSectionRightMobile = ({ onClose }: Props) => {
         initial="hidden"
         animate="visible"
         exit="exit"
-        transition={{ type: "tween", duration: 0.3 }}
+        transition={{ type: "spring", duration: 0.3 }}
       >
         <ul>
           {cart.map((item: CartItem) => {
@@ -61,7 +61,7 @@ const PriceInfosSectionRightMobile = ({ onClose }: Props) => {
                     </h2>
                     {item.extras && item.extras.length > 0 && (
                       <p className="text-xs font-bold">
-                        Extras:{" "}
+                        Adicional:{" "}
                         <span className="font-normal">
                           {item.extras.join(", ")}
                         </span>

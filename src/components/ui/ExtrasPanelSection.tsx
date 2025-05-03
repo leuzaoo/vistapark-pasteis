@@ -59,7 +59,7 @@ export default function ExtrasPanel({
         initial="hidden"
         animate="visible"
         exit="exit"
-        transition={{ type: "tween", duration: 0.3 }}
+        transition={{ type: "spring", duration: 0.3 }}
       >
         <p className="mb-5 text-sm sm:text-base">
           Adicionais para:{" "}
