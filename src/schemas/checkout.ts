@@ -11,8 +11,8 @@ export const checkoutSchema = z
     (data) => data.paymentMethod !== "Dinheiro" || !!data.cashAmount?.trim(),
     {
       path: ["cashAmount"],
-      message: "Informe o valor em dinheiro para troco",
-    }
+      message: "Informe o valor do dinheiro para te levarmos o troco.",
+    },
   );
 
 export type CheckoutData = z.infer<typeof checkoutSchema>;
