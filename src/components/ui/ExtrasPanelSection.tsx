@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import React, { useState } from "react";
 
 import { ProductItem } from "@/data/products";
+import { ALL_EXTRAS } from "@/data/extras";
 
 interface ExtrasPanelProps {
   product: ProductItem;
@@ -11,8 +12,6 @@ interface ExtrasPanelProps {
   onSave: (extras: string[]) => void;
   onClose: () => void;
 }
-
-const ALL_EXTRAS = ["Azeitona", "Queijo", "Bacon", "Orégano"];
 
 export default function ExtrasPanel({
   product,
@@ -70,15 +69,15 @@ export default function ExtrasPanel({
         </p>
         <div className="flex max-h-60 flex-col gap-2 overflow-y-auto">
           {ALL_EXTRAS.map((extra) => (
-            <label key={extra} className="inline-flex items-center">
+            <label key={extra.id} className="inline-flex items-center">
               <input
                 type="checkbox"
-                value={extra}
-                checked={selected.includes(extra)}
+                value={extra.name}
+                checked={selected.includes(extra.name)}
                 onChange={toggle}
                 className="mr-2"
               />
-              {extra}
+              {extra.name}
             </label>
           ))}
         </div>

@@ -7,15 +7,6 @@ export interface ProductItem {
   isSweet: boolean;
 }
 
-export interface ProductItemCartProps {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  qty: number;
-  notes?: string;
-}
-
 export const productList: ProductItem[] = [
   {
     id: 0,
