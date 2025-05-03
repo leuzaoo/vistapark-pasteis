@@ -47,7 +47,7 @@ export default function FoodCartCard({
         <div className="flex w-full flex-col items-start justify-between pl-1">
           <div className="flex w-full justify-between">
             <p className="font-medium">{product.name}</p>
-            <Trash2Icon size={24} onClick={onDeleteItem} />
+            <Trash2Icon size={20} onClick={onDeleteItem} />
           </div>
           <div className="flex items-center gap-2">
             <span className="font-unbounded font-bold">
