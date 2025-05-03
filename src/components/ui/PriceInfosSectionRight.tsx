@@ -3,17 +3,14 @@ import Link from "next/link";
 import React from "react";
 
 import { useCart, CartItem } from "@/contexts/CartContext";
+import { calculateTotalPrice } from "@/utils/totalPrice";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { productList } from "@/data/products";
 
 export default function PriceInfosSectionRight() {
   const { cart, totalItems } = useCart();
 
-  const totalPrice = cart.reduce((sum, item) => {
-    const product = productList.find((p) => p.id === item.id);
-    if (!product) return sum;
-    return sum + product.price * item.qty;
-  }, 0);
+  const totalPrice = calculateTotalPrice(cart, productList);
 
   return (
     <div className="hidden h-full flex-col justify-between rounded-xl bg-white p-2 shadow-sm sm:flex">
