@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import React, { useState } from "react";
 
 import { ProductItem } from "@/data/products";
+import { ALL_EXTRAS } from "@/data/extras";
 
 interface ExtrasPanelProps {
   product: ProductItem;
@@ -11,8 +12,6 @@ interface ExtrasPanelProps {
   onSave: (extras: string[]) => void;
   onClose: () => void;
 }
-
-const ALL_EXTRAS = ["Azeitona", "Queijo", "Bacon", "Orégano"];
 
 export default function ExtrasPanel({
   product,
