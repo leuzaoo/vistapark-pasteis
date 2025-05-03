@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ShoppingBasketIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useCart } from "@/contexts/CartContext";
-import Link from "next/link";
 
 const Navbar = () => {
   const [mounted, setMounted] = useState(false);
