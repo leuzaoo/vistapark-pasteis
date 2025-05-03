@@ -1,13 +1,18 @@
+import React, { useEffect, useState } from "react";
 import { ShoppingBasketIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
 
 import { useCart } from "@/contexts/CartContext";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [mounted, setMounted] = useState(false);
   const { totalItems } = useCart();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="bg-light sticky top-0 z-50 w-full shadow-sm">
@@ -29,9 +34,11 @@ const Navbar = () => {
                 size={48}
                 strokeWidth={1}
               />
-              <div className="bg-primary-yellow absolute bottom-0 left-0 flex size-6 items-center justify-center rounded-full text-sm font-bold">
-                {totalItems}
-              </div>
+              {mounted && totalItems > 0 && (
+                <div className="bg-primary-yellow absolute bottom-0 left-0 flex h-6 w-6 items-center justify-center rounded-full text-sm font-bold">
+                  {totalItems}
+                </div>
+              )}
             </div>
           </Link>
         </motion.button>
