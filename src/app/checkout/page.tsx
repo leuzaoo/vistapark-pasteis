@@ -28,7 +28,7 @@ export default function CheckoutPage() {
     const lines = cart.map((i) => {
       const extrasStr =
         i.extras && i.extras.length
-          ? ` (*Adicionais:* ${i.extras.join(", ")})`
+          ? ` (*Adicional:* ${i.extras.join(", ")})`
           : "";
 
       const notesStr = i.notes ? ` (*Obs:* ${i.notes})` : "";

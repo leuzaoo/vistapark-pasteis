@@ -34,7 +34,7 @@ export default function PriceInfosSectionRight() {
                     </h2>
                     {item.extras && item.extras.length > 0 && (
                       <p className="text-xs font-bold">
-                        Extras:{" "}
+                        Adicional:{" "}
                         <span className="font-normal">
                           {item.extras.join(", ")}
                         </span>
