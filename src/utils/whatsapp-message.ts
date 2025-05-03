@@ -1,7 +1,8 @@
+import { calculateTotalPrice } from "./totalPrice";
 import { CartItem } from "@/contexts/CartContext";
 import { CheckoutData } from "@/schemas/checkout";
-import { productList } from "@/data/products";
 import { formatCurrency } from "./formatCurrency";
+import { productList } from "@/data/products";
 
 const DEFAULT_WHATSAPP_PHONE = "5511940361039";
 
@@ -21,11 +22,7 @@ export function buildWhatsAppLink(
     return `• ${i.qty}x ${i.name}${extrasStr}${notesStr}`;
   });
 
-  const totalPrice = cartItems.reduce((sum, i) => {
-    const prod = productList.find((p) => p.id === i.id);
-    if (!prod) return sum;
-    return sum + prod.price * i.qty;
-  }, 0);
+  const totalPrice = calculateTotalPrice(cartItems, productList);
 
   const totalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
 
