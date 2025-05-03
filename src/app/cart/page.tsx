@@ -1,6 +1,6 @@
 "use client";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import { ListOrderedIcon } from "lucide-react";
 
 import { useCart, CartItem } from "@/contexts/CartContext";
@@ -56,12 +56,14 @@ export default function CartPage() {
       <div className="relative mx-auto flex h-screen max-w-4xl flex-col px-4 py-4">
         <div className="flex w-full items-center justify-between">
           <HeaderCart href="/menu" />
-          <ListOrderedIcon
-            strokeWidth={1.5}
-            size={32}
-            className="mb-5 sm:hidden"
-            onClick={() => setOpenMenuCard(true)}
-          />
+          <motion.button whileTap={{ scale: 1.2 }}>
+            <ListOrderedIcon
+              strokeWidth={1.5}
+              size={32}
+              className="mb-5 sm:hidden"
+              onClick={() => setOpenMenuCard(true)}
+            />
+          </motion.button>
         </div>
 
         <div className="flex-1 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-5">
@@ -141,7 +143,9 @@ export default function CartPage() {
           </AnimatePresence>
 
           <div className="block sm:hidden">
-            <PriceInfosSection />
+            <AnimatePresence mode="wait">
+              <PriceInfosSection />
+            </AnimatePresence>
           </div>
         </div>
       </div>

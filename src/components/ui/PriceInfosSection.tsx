@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 
@@ -27,13 +28,15 @@ export default function PriceInfosSection() {
         </p>
       </div>
 
-      <Link
-        href="/checkout"
-        className="text-light relative mx-auto mt-5 flex w-full items-center justify-center rounded-lg bg-green-600 py-2"
-      >
-        <p className="text-xl">Finalizar</p>
-        <ChevronRightIcon className="absolute right-4" />
-      </Link>
+      <motion.button whileTap={{ scale: 1.1 }} className="text-xl">
+        <Link
+          href="/checkout"
+          className="text-light relative mx-auto mt-5 flex w-full items-center justify-center rounded-lg bg-green-600 py-2"
+        >
+          Finalizar
+          <ChevronRightIcon className="absolute right-4" />
+        </Link>
+      </motion.button>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { SquareXIcon } from "lucide-react";
 import React, { useCallback } from "react";
+import { XIcon } from "lucide-react";
 
 import { formatCurrency } from "@/utils/formatCurrency";
 import { ProductItem } from "@/data/products";
@@ -70,13 +70,17 @@ export default function FoodInfosCard({
         initial="hidden"
         animate="visible"
         exit="exit"
-        transition={{ type: "spring", duration: 0.3 }}
+        transition={{ type: "spring", duration: 0.5 }}
       >
         <header className="flex items-center justify-between">
           <p className="font-unbounded text-2xl font-bold">{product.name}</p>
-          <button onClick={onClose} className="text-primary-red cursor-pointer">
-            <SquareXIcon size={24} />
-          </button>
+          <motion.button
+            whileTap={{ scale: 1.2 }}
+            onClick={onClose}
+            className="text-primary-red cursor-pointer"
+          >
+            <XIcon size={24} />
+          </motion.button>
         </header>
 
         <p className="text-dark/60 mb-16 text-xl">{product.desc}</p>
@@ -100,12 +104,13 @@ export default function FoodInfosCard({
           </div>
         </div>
 
-        <button
+        <motion.button
+          whileTap={{ scale: 1.2 }}
           onClick={onAddToCart}
           className="bg-primary-red text-light hover:bg-primary-red/60 w-full cursor-pointer rounded-xl py-3 text-center text-xl font-light shadow-sm transition-all duration-200 ease-in-out"
         >
           Confirmar
-        </button>
+        </motion.button>
       </motion.div>
     </>
   );

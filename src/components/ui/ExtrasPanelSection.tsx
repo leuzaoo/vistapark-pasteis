@@ -81,12 +81,13 @@ export default function ExtrasPanel({
             </label>
           ))}
         </div>
-        <button
+        <motion.button
+          whileTap={{ scale: 1.1 }}
           onClick={() => onSave(selected)}
           className="bg-primary-red mt-5 w-full cursor-pointer rounded-lg py-2 text-white"
         >
           Confirmar
-        </button>
+        </motion.button>
       </motion.div>
     </>
   );

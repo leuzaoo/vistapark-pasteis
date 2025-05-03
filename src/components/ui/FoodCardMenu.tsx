@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { ShoppingBasketIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-
-import { PlusIcon } from "lucide-react";
 
 import { formatCurrency } from "@/utils/formatCurrency";
 import { useCart } from "@/contexts/CartContext";
@@ -60,9 +60,9 @@ export default function FoodCardMenu({ product }: Props) {
           <p className="font-unbounded text-2xl font-bold transition-all duration-500 ease-in-out">
             {formatCurrency(product.price)}
           </p>
-          <button
+          <motion.button
             type="button"
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+            onClick={(e) => {
               e.stopPropagation();
               addItem({
                 id: product.id,
@@ -72,10 +72,11 @@ export default function FoodCardMenu({ product }: Props) {
                 price: product.price,
               });
             }}
+            whileTap={{ scale: 1.2 }}
             className="bg-primary-red size-8 cursor-pointer place-items-end rounded-lg text-center"
           >
-            <PlusIcon className="text-light mx-auto size-6" />
-          </button>
+            <ShoppingBasketIcon className="text-light mx-auto size-6" />
+          </motion.button>
         </div>
       </div>
     </div>
