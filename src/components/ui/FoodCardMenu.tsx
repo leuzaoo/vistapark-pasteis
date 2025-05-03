@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { ShoppingBasketIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-import { ShoppingBasketIcon } from "lucide-react";
 
 import { formatCurrency } from "@/utils/formatCurrency";
 import { useCart } from "@/contexts/CartContext";

@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { ListOrderedIcon } from "lucide-react";
 
 import { useCart, CartItem } from "@/contexts/CartContext";
