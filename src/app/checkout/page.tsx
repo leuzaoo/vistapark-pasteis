@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import { checkoutSchema, CheckoutData } from "@/schemas/checkout";
+import { buildWhatsAppLink } from "@/utils/whatsapp-message";
 import { useCart } from "@/contexts/CartContext";
 
 import EmptyCartLayout from "@/components/pages/EmptyCartLayout";
@@ -23,39 +24,10 @@ export default function CheckoutPage() {
   const paymentMethod = watch("paymentMethod");
 
   const onSubmit = (data: CheckoutData) => {
-    const { tower, apartment, paymentMethod, cashAmount } = data;
+    if (cart.length === 0) return;
 
-    const lines = cart.map((i) => {
-      const extrasStr =
-        i.extras && i.extras.length
-          ? ` (*Adicional:* ${i.extras.join(", ")})`
-          : "";
-
-      const notesStr = i.notes ? ` (*Obs:* ${i.notes})` : "";
-
-      return `• ${i.qty}x ${i.name}${extrasStr}${notesStr}`;
-    });
-
-    const message = [
-      "*Novo pedido de pastéis:*",
-      ...lines,
-      "",
-      "*Pagamento:*",
-      paymentMethod,
-      paymentMethod === "Dinheiro" ? `(vai pagar R$ ${cashAmount})` : "",
-      "",
-      `*Entrega:* Torre ${tower}, Apto ${apartment}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const phone = "5511940361039";
-    window.open(
-      `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
-        message,
-      )}`,
-      "_blank",
-    );
+    const url = buildWhatsAppLink(cart, data);
+    window.open(url, "_blank");
   };
 
   if (cart.length === 0) {
