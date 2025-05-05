@@ -5,6 +5,7 @@
   --color-dark: #1f1f1f;
   --color-primary-red: #db0009;
   --color-primary-yellow: #ffbc0f;
+  --color-primary-blue: #4e69ad;
   --font-agbalumo: Agbalumo, sans-serif;
   --font-sriracha: Sriracha, sans-serif;
   --font-kodchasan: Kodchasan, sans-serif;
@@ -16,6 +17,7 @@
   --dark: #1f1f1f;
   --primary-red: #db0009;
   --primary-yellow: #ffbc0f;
+  --primary-blue: #4e69ad;
 }
 
 body {
