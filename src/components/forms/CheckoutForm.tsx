@@ -62,7 +62,6 @@ export default function CheckoutForm({
           register={register}
           errors={errors}
           options={[
-          
             { value: "Cartão", label: "Cartão" },
             { value: "Pix", label: "Pix" },
             { value: "Dinheiro", label: "Dinheiro" },
