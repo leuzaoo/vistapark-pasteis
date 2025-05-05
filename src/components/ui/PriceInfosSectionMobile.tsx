@@ -21,7 +21,7 @@ const panelVariants: MVariants = {
   exit: { x: "-125%" },
 };
 
-const PriceInfosSectionRightMobile = ({ onClose }: Props) => {
+const PriceInfosSectionMobile = ({ onClose }: Props) => {
   const { cart } = useCart();
 
   return (
@@ -93,4 +93,4 @@ const PriceInfosSectionRightMobile = ({ onClose }: Props) => {
   );
 };
 
-export default PriceInfosSectionRightMobile;
+export default PriceInfosSectionMobile;
