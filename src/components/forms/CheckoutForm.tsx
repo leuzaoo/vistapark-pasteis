@@ -62,7 +62,7 @@ export default function CheckoutForm({
           register={register}
           errors={errors}
           options={[
-            // { value: "", label: "Selecionar" },s
+          
             { value: "Cartão", label: "Cartão" },
             { value: "Pix", label: "Pix" },
             { value: "Dinheiro", label: "Dinheiro" },
