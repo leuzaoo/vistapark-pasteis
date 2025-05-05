@@ -6,7 +6,7 @@ import { ListOrderedIcon } from "lucide-react";
 import { useCart, CartItem } from "@/contexts/CartContext";
 import { productList } from "@/data/products";
 
-import PriceInfosSectionRightMobile from "@/components/ui/PriceInfosSectionRightMobile";
+import PriceInfosSectionMobile from "@/components/ui/PriceInfosSectionMobile";
 import PriceInfosSectionRight from "@/components/ui/PriceInfosSectionRight";
 import PriceInfosSection from "@/components/ui/PriceInfosSection";
 import EmptyCartLayout from "@/components/pages/EmptyCartLayout";
@@ -136,9 +136,7 @@ export default function CartPage() {
 
           <AnimatePresence mode="wait">
             {openMenuCard && (
-              <PriceInfosSectionRightMobile
-                onClose={() => setOpenMenuCard(false)}
-              />
+              <PriceInfosSectionMobile onClose={() => setOpenMenuCard(false)} />
             )}
           </AnimatePresence>
 

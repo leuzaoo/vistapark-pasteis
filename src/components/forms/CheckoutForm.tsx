@@ -10,13 +10,14 @@ import {
 } from "react-hook-form";
 
 import { CheckoutData } from "@/schemas/checkout";
+import InputField from "./InputField";
 
 interface CheckoutFormProps {
+  handleSubmit: UseFormHandleSubmit<CheckoutData>;
   register: UseFormRegister<CheckoutData>;
+  onSubmit: (data: CheckoutData) => void;
   watch: UseFormWatch<CheckoutData>;
   errors: FieldErrors<CheckoutData>;
-  handleSubmit: UseFormHandleSubmit<CheckoutData>;
-  onSubmit: (data: CheckoutData) => void;
   paymentMethod: string;
 }
 
@@ -37,62 +38,55 @@ export default function CheckoutForm({
     (paymentMethod !== "Dinheiro" || Boolean(cashAmount));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
-        <label className="block font-medium">Torre</label>
-        <input
-          {...register("tower")}
-          className="w-full rounded border px-2 py-1"
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="justify-between space-y-3 sm:grid sm:grid-cols-3 sm:gap-4">
+        <InputField
+          label="Torre"
+          name="tower"
+          placeholder="Ex: 5"
+          register={register}
+          errors={errors}
         />
-        {errors.tower && <p className="text-red-600">{errors.tower.message}</p>}
-      </div>
 
-      <div>
-        <label className="block font-medium">Apartamento</label>
-        <input
-          {...register("apartment")}
-          className="w-full rounded border px-2 py-1"
+        <InputField
+          label="Apartamento"
+          name="apartment"
+          placeholder="Ex: 106"
+          register={register}
+          errors={errors}
         />
-        {errors.apartment && (
-          <p className="text-red-600">{errors.apartment.message}</p>
-        )}
-      </div>
 
-      <div>
-        <label className="block font-medium">Forma de pagamento</label>
-        <select
-          {...register("paymentMethod")}
-          className="w-full rounded border px-2 py-1"
-        >
-          <option value="Cartão">Cartão</option>
-          <option value="Pix">Pix</option>
-          <option value="Dinheiro">Dinheiro</option>
-        </select>
-        {errors.paymentMethod && (
-          <p className="text-red-600">{errors.paymentMethod.message}</p>
-        )}
-      </div>
+        <InputField
+          label="Forma de pagamento"
+          name="paymentMethod"
+          register={register}
+          errors={errors}
+          options={[
+            // { value: "", label: "Selecionar" },
+            { value: "Cartão", label: "Cartão" },
+            { value: "Pix", label: "Pix" },
+            { value: "Dinheiro", label: "Dinheiro" },
+          ]}
+        />
 
-      {paymentMethod === "Dinheiro" && (
-        <div>
-          <label className="block font-medium">Valor em dinheiro (R$)</label>
-          <input
-            {...register("cashAmount")}
-            className="w-full rounded border px-2 py-1"
+        {paymentMethod === "Dinheiro" && (
+          <InputField
+            label="Valor em dinheiro (R$)"
+            name="cashAmount"
+            placeholder="Ex: R$75"
+            register={register}
+            errors={errors}
           />
-          {errors.cashAmount && (
-            <p className="text-red-600">{errors.cashAmount.message}</p>
-          )}
-        </div>
-      )}
+        )}
+      </div>
 
       <motion.button
         whileTap={{ scale: 1.05 }}
         type="submit"
         disabled={!isFormValid}
-        className={`w-full rounded px-4 py-2 text-white transition-all duration-200 ease-in-out ${isFormValid ? "bg-blue-600 hover:bg-blue-700" : "cursor-not-allowed bg-gray-400"} `}
+        className={`mt-7 w-full rounded-lg py-3 text-xl font-medium text-white transition-all duration-200 ease-in-out ${isFormValid ? "cursor-pointer bg-green-600 hover:bg-green-800" : "cursor-not-allowed bg-gray-400"} `}
       >
-        Enviar para WhatsApp
+        Finalizar pedido
       </motion.button>
     </form>
   );
