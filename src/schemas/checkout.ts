@@ -2,8 +2,8 @@ import { z } from "zod";
 
 export const checkoutSchema = z
   .object({
-    tower: z.string().min(1, "Obrigatório"),
-    apartment: z.string().min(1, "Obrigatório"),
+    tower: z.string().min(1, "Deve ser preenchido."),
+    apartment: z.string().min(1, "Deve ser preenchido."),
     paymentMethod: z.enum(["Cartão", "Pix", "Dinheiro"]),
     cashAmount: z.string().optional(),
   })
