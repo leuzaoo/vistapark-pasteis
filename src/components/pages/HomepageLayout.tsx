@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-
 import { ChevronRightIcon, ShoppingBasketIcon } from "lucide-react";
+
 import DelayedLink from "../ui/DelayedLink";
 
 export default function HomepageLayout() {
