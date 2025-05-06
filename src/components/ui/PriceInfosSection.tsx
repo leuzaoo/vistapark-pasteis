@@ -28,15 +28,13 @@ export default function PriceInfosSection() {
         </p>
       </div>
 
-      <motion.button whileTap={{ scale: 1.1 }} className="text-xl">
-        <DelayedLink
-          href="/checkout"
-          className="text-light bg-primary-blue relative mx-auto mt-5 flex w-full cursor-pointer items-center justify-center rounded-lg py-2"
-        >
-          Pagamento/Entrega
-          <ChevronRightIcon className="absolute right-4" />
-        </DelayedLink>
-      </motion.button>
+      <DelayedLink
+        href="/checkout"
+        className="text-light bg-primary-blue relative mx-auto mt-5 flex w-full cursor-pointer items-center justify-center rounded-lg py-2"
+      >
+        Pagamento/Entrega
+        <ChevronRightIcon className="absolute right-4" />
+      </DelayedLink>
     </div>
   );
 }
