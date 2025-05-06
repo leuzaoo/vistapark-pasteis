@@ -31,9 +31,9 @@ export default function PriceInfosSection() {
       <motion.button whileTap={{ scale: 1.1 }} className="text-xl">
         <Link
           href="/checkout"
-          className="text-light relative mx-auto mt-5 flex w-full items-center justify-center rounded-lg bg-green-600 py-2"
+          className="text-light bg-primary-blue relative mx-auto mt-5 flex w-full items-center justify-center rounded-lg py-2"
         >
-          Finalizar
+          Pagamento/Entrega
           <ChevronRightIcon className="absolute right-4" />
         </Link>
       </motion.button>

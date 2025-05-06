@@ -84,7 +84,7 @@ export default function ExtrasPanel({
         <motion.button
           whileTap={{ scale: 1.1 }}
           onClick={() => onSave(selected)}
-          className="bg-primary-red mt-5 w-full cursor-pointer rounded-lg py-2 text-white"
+          className="bg-primary-blue mt-5 w-full cursor-pointer rounded-lg py-2 text-white"
         >
           Confirmar
         </motion.button>
