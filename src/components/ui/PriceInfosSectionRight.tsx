@@ -1,11 +1,11 @@
 import { ChevronRightIcon } from "lucide-react";
-import Link from "next/link";
-import React from "react";
 
 import { useCart, CartItem } from "@/contexts/CartContext";
 import { calculateTotalPrice } from "@/utils/totalPrice";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { productList } from "@/data/products";
+
+import DelayedLink from "./DelayedLink";
 
 export default function PriceInfosSectionRight() {
   const { cart, totalItems } = useCart();
@@ -60,13 +60,13 @@ export default function PriceInfosSectionRight() {
               {formatCurrency(totalPrice)}
             </span>
           </div>
-          <Link
+          <DelayedLink
             href="/checkout"
-            className="text-light bg-primary-blue relative mx-auto mt-3 flex w-full items-center justify-center rounded-lg py-2 text-xl"
+            className="text-light bg-primary-blue relative mx-auto mt-3 flex w-full cursor-pointer items-center justify-center rounded-lg py-2 text-xl"
           >
             Pagamento/Entrega
             <ChevronRightIcon className="absolute right-4" />
-          </Link>
+          </DelayedLink>
         </div>
       </div>
     </div>

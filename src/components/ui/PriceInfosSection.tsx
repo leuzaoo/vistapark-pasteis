@@ -1,12 +1,12 @@
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import React from "react";
 
 import { calculateTotalPrice } from "@/utils/totalPrice";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { useCart } from "@/contexts/CartContext";
 import { productList } from "@/data/products";
+
+import DelayedLink from "./DelayedLink";
 
 export default function PriceInfosSection() {
   const { cart, totalItems } = useCart();
@@ -29,13 +29,13 @@ export default function PriceInfosSection() {
       </div>
 
       <motion.button whileTap={{ scale: 1.1 }} className="text-xl">
-        <Link
+        <DelayedLink
           href="/checkout"
-          className="text-light bg-primary-blue relative mx-auto mt-5 flex w-full items-center justify-center rounded-lg py-2"
+          className="text-light bg-primary-blue relative mx-auto mt-5 flex w-full cursor-pointer items-center justify-center rounded-lg py-2"
         >
           Pagamento/Entrega
           <ChevronRightIcon className="absolute right-4" />
-        </Link>
+        </DelayedLink>
       </motion.button>
     </div>
   );
