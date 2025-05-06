@@ -1,6 +1,5 @@
 "use client";
 import { LoaderPinwheelIcon } from "lucide-react";
-import React from "react";
 
 export default function LoadingSpinner() {
   return (
