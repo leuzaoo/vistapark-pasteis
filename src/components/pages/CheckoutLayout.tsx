@@ -63,7 +63,7 @@ const CheckoutLayout = () => {
         <p>
           Após clicar em{" "}
           <span className="font-bold underline">Finalizar pedido</span> você
-          será encaminhado ao WhatsApp e é só clicar em{" "}
+          será encaminhado ao WhatsApp e é só clicar para{" "}
           <span className="font-bold underline">enviar a mensagem.</span>
         </p>
       </div>
