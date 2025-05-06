@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import { ChevronRightIcon, ShoppingBasketIcon } from "lucide-react";
+import DelayedLink from "../ui/DelayedLink";
 
 export default function HomepageLayout() {
   return (
@@ -47,18 +47,18 @@ export default function HomepageLayout() {
                 Quentinho e rápido, do jeito que você gosta!
               </p>
 
-              <Link
+              <DelayedLink
                 href="/menu"
                 className="mt-10 inline-flex items-center space-x-2"
               >
-                <div className="flex items-center justify-between gap-6 rounded-full bg-white pr-3 shadow-sm transition hover:opacity-75 md:gap-12">
+                <div className="flex cursor-pointer items-center justify-between gap-6 rounded-full bg-white pr-3 shadow-sm transition hover:opacity-60 md:gap-12">
                   <div className="bg-primary-red flex size-14 items-center justify-center rounded-full text-white md:size-20">
                     <ShoppingBasketIcon className="size-8 md:size-12" />
                   </div>
                   <span className="text-[28px] md:text-4xl">Pedir agora</span>
                   <ChevronRightIcon className="size-6 md:size-8" />
                 </div>
-              </Link>
+              </DelayedLink>
             </div>
             <footer className="mt-10 text-center text-xs xl:mt-20">
               © 2025 – Todos os direitos reservados
