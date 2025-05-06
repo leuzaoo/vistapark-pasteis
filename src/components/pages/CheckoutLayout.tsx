@@ -58,7 +58,17 @@ const CheckoutLayout = () => {
         paymentMethod={paymentMethod}
         watch={watch}
       />
-      <div className="border-dark/15 mt-7 flex w-full items-center justify-between rounded-lg border bg-white p-2 shadow-sm">
+
+      <div className="my-5">
+        <p>
+          Após clicar em{" "}
+          <span className="font-bold underline">Finalizar pedido</span> você
+          será encaminhado ao WhatsApp e é só clicar em{" "}
+          <span className="font-bold underline">enviar a mensagem.</span>
+        </p>
+      </div>
+
+      <div className="border-dark/15 flex w-full items-center justify-between rounded-lg border bg-white p-2 shadow-sm">
         <div className="flex w-full flex-col gap-2">
           <div className="flex w-full justify-between">
             Quantidade
