@@ -62,9 +62,9 @@ export default function PriceInfosSectionRight() {
           </div>
           <Link
             href="/checkout"
-            className="text-light relative mx-auto mt-3 flex w-full items-center justify-center rounded-lg bg-green-600 py-2 text-xl"
+            className="text-light bg-primary-blue relative mx-auto mt-3 flex w-full items-center justify-center rounded-lg py-2 text-xl"
           >
-            Finalizar
+            Pagamento/Entrega
             <ChevronRightIcon className="absolute right-4" />
           </Link>
         </div>

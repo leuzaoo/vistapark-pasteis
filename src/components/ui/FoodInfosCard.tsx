@@ -107,7 +107,7 @@ export default function FoodInfosCard({
         <motion.button
           whileTap={{ scale: 1.2 }}
           onClick={onAddToCart}
-          className="bg-primary-red text-light hover:bg-primary-red/60 w-full cursor-pointer rounded-xl py-3 text-center text-xl font-light shadow-sm transition-all duration-200 ease-in-out"
+          className="text-light w-full cursor-pointer rounded-xl bg-green-600 py-3 text-center text-xl font-light shadow-sm transition-all duration-200 ease-in-out hover:bg-green-800"
         >
           Confirmar
         </motion.button>
