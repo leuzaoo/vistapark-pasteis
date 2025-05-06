@@ -1,5 +1,4 @@
 import { ChevronRightIcon } from "lucide-react";
-import React from "react";
 
 import { useCart, CartItem } from "@/contexts/CartContext";
 import { calculateTotalPrice } from "@/utils/totalPrice";
