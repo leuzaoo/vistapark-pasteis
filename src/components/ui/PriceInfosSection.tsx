@@ -1,6 +1,5 @@
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import React from "react";
 
 import { calculateTotalPrice } from "@/utils/totalPrice";
 import { formatCurrency } from "@/utils/formatCurrency";
