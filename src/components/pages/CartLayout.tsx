@@ -54,7 +54,7 @@ export default function CartPage() {
   return (
     <>
       <div className="relative mx-auto flex h-screen max-w-4xl flex-col px-4 py-4">
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between pr-4">
           <HeaderCart href="/menu" />
           <motion.button whileTap={{ scale: 1.2 }}>
             <ListOrderedIcon
