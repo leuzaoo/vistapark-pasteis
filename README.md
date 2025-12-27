@@ -1,33 +1,49 @@
 # Pastelaria VistaPark
 
-Este aplicativo é uma plataforma web responsiva para moradores de condomínio realizarem pedidos de pastéis (doces e salgados) diretamente pelo WhatsApp, sem necessidade de sistema de pagamento interno. O usuário pode:
+Responsive web app for condominium residents to order sweet and savory pastels through WhatsApp, without an internal payment system.
 
-- Filtrar entre pastéis doces e salgados
+## Features
 
-- Selecionar quantidade de cada sabor e adicionar observações (ex.: sem cebola, mais queijo)
+- Filter between sweet and savory options
+- Select quantities per flavor and add notes (e.g., no onion, extra cheese)
+- Choose a payment method (Card, Pix, or Cash) with change amount input
+- Provide building tower and apartment for delivery
+- Generate a WhatsApp deep link with a preformatted order message
 
-- Escolher forma de pagamento (Cartão, Pix ou Dinheiro) com campo para informar valor em dinheiro para troco
+## Tech Stack
 
-- Informar torre e apartamento para entrega
+- Next.js 15 for routing, SSR/SSG, and performance optimizations
+- React 19 for the UI layer
+- TypeScript for static typing
+- Tailwind CSS 4 for responsive, utility-first styling
+- React Hook Form + Zod for form state and validation
+- Lucide React for icons
+- Framer Motion for UI animation
+- Local Storage for cart persistence between sessions
+- WhatsApp deep link for order submission
 
-- Finalizar o pedido gerando um deep link que abre o WhatsApp com a mensagem formatada
+## Language
 
-# Tecnologias Utilizadas
+- TypeScript (primary)
+- JavaScript (runtime dependencies)
 
-- Next.js (React) para renderização híbrida (SSG/SSR), roteamento e otimizações de performance
+## Requirements
 
-- TypeScript para tipagem estática e maior segurança de código
+- Node.js 18+ (LTS recommended)
+- npm, pnpm, or yarn
 
-- React Context + useReducer para gerenciamento global do estado do carrinho de compras
+## Getting Started
 
-- localStorage para persistir dados do carrinho entre sessões do usuário
+```bash
+npm install
+npm run dev
+```
 
-- Tailwind CSS para estilização utilitária e design responsivo
+Open `http://localhost:3000` in your browser.
 
-- React Hook Form + Zod para gerenciamento e validação de formulários de checkout
+## Scripts
 
-- Lucide React para ícones leves e personalizáveis
-
-- next/font para otimizar o carregamento das fontes Inter e Agbalumo
-
-- WhatsApp API (deep link) para envio de pedidos ao número configurado
+- `npm run dev` - start the development server
+- `npm run build` - build for production
+- `npm run start` - start the production server
+- `npm run lint` - run lint checks
